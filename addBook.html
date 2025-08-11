@@ -5,5 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book you have read</title>
   </head>
-  <body></body>
+  <body>
+    <header></header>
+    <main>
+      <form action="" method="post">
+        <div>
+          <label for="title">Book title</label>
+          <input type="text" name="title" id="title" />
+        </div>
+
+        <div>
+          <label for="author">Book author</label>
+          <input type="text" name="author" id="" />
+        </div>
+
+        <div>
+          <label for="date">Date</label>
+          <input type="date" name="date" id="date" />
+        </div>
+
+        <div>
+          <p>What is the genre?</p>
+          <ul>
+            <li>
+              <label for="romance">Romance</label>
+              <input
+                type="checkbox"
+                id="romance"
+                name="genre"
+                value="romance"
+                checked />
+            </li>
+            <li>
+              <label for="fantasy">Fantasy</label>
+              <input
+                type="checkbox"
+                id="fantasy"
+                name="fantasy"
+                value="Fantasy" />
+            </li>
+            <li>
+              <label for="Seond_chance">Second Chnace</label>
+              <input
+                type="checkbox"
+                id="second_chance"
+                name="secondChance"
+                value="second chance" />
+            </li>
+          </ul>
+        </div>
+        <fieldset>
+          <legend>Will you re read it?</legend>
+          <ul>
+            <li>
+              <input type="radio" name="re-read" id="yes" value="Yes" />
+              <label for="re-read">Yes</label>
+            </li>
+            <li>
+              <input type="radio" name="re-read" id="no" value="No" />
+              <label for="re-read">No</label>
+            </li>
+            <li>
+              <input type="radio" name="re-read" id="maybe" value="Maybe" />
+              <label for="re-read">Maybe</label>
+            </li>
+          </ul>
+        </fieldset>
+
+        <div>
+          <label for="bookCover"></label>
+          <input type="file" name="book-cover" id="cover" />
+        </div>
+
+        <div>
+          <textarea name="review" id="review" cols="30" rows="10">
+What are your thoughts</textarea
+          >
+        </div>
+        <button type="submit">Log it</button>
+      </form>
+    </main>
+    <footer></footer>
+  </body>
 </html>
