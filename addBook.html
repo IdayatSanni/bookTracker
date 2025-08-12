@@ -8,7 +8,7 @@
   <body>
     <header></header>
     <main>
-      <form action="" method="post">
+      <form action="" method="post" id="form">
         <div>
           <label for="title">Book title</label>
           <input type="text" name="title" id="title" />
@@ -22,6 +22,11 @@
         <div>
           <label for="date">Date</label>
           <input type="date" name="date" id="date" />
+        </div>
+
+        <div>
+          <label for="rate">Rating</label>
+          <input type="range" name="rate" id="rate" />
         </div>
 
         <div>
@@ -73,7 +78,7 @@
         </fieldset>
 
         <div>
-          <label for="bookCover"></label>
+          <label for="book-cover">Book cover</label>
           <input type="file" name="book-cover" id="cover" />
         </div>
 
@@ -82,9 +87,10 @@
 What are your thoughts</textarea
           >
         </div>
-        <button type="submit">Log it</button>
+        <button type="submit" . id="submit">Log it</button>
       </form>
     </main>
     <footer></footer>
+    <script src="/"></script>
   </body>
 </html>
