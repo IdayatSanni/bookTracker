@@ -3,94 +3,118 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book you have read</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header></header>
     <main>
-      <form action="" method="post" id="form">
-        <div>
-          <label for="title">Book title</label>
-          <input type="text" name="title" id="title" />
-        </div>
+      <div class="container">
+        <form action="" id="form">
+          <div class="form-field">
+            <label for="title">Book title</label>
+            <input type="text" name="title" id="title" />
+            <small></small>
+          </div>
 
-        <div>
-          <label for="author">Book author</label>
-          <input type="text" name="author" id="" />
-        </div>
+          <div class="form-field">
+            <label for="author">Book author</label>
+            <input type="text" name="author" id="author" />
+            <small></small>
+          </div>
 
-        <div>
-          <label for="date">Date</label>
-          <input type="date" name="date" id="date" />
-        </div>
+          <div class="form-field">
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date" />
+            <small></small>
+          </div>
 
-        <div>
-          <label for="rate">Rating</label>
-          <input type="range" name="rate" id="rate" />
-        </div>
+          <div class="form-field">
+            <label for="rating">Rating</label>
+            <input
+              type="range"
+              min="1"
+              max="10"
+              step="0.5"
+              value="1"
+              class="star-rating"
+              name="rating"
+              id="rating"
+              style="--val: 1"
+              oninput="this.style='--val:'+this.value" />
+            <small></small>
+          </div>
 
-        <div>
-          <p>What is the genre?</p>
-          <ul>
-            <li>
-              <label for="romance">Romance</label>
-              <input
-                type="checkbox"
-                id="romance"
-                name="genre"
-                value="romance"
-                checked />
-            </li>
-            <li>
-              <label for="fantasy">Fantasy</label>
-              <input
-                type="checkbox"
-                id="fantasy"
-                name="fantasy"
-                value="Fantasy" />
-            </li>
-            <li>
-              <label for="Seond_chance">Second Chnace</label>
-              <input
-                type="checkbox"
-                id="second_chance"
-                name="secondChance"
-                value="second chance" />
-            </li>
-          </ul>
-        </div>
-        <fieldset>
-          <legend>Will you re read it?</legend>
-          <ul>
-            <li>
-              <input type="radio" name="re-read" id="yes" value="Yes" />
-              <label for="re-read">Yes</label>
-            </li>
-            <li>
-              <input type="radio" name="re-read" id="no" value="No" />
-              <label for="re-read">No</label>
-            </li>
-            <li>
-              <input type="radio" name="re-read" id="maybe" value="Maybe" />
-              <label for="re-read">Maybe</label>
-            </li>
-          </ul>
-        </fieldset>
+          <div class="form-field">
+            <p>What is the genre?</p>
+            <ul>
+              <li>
+                <label for="romance">Romance</label>
+                <input
+                  type="checkbox"
+                  id="romance"
+                  name="romance"
+                  value="romance"
+                  checked />
+              </li>
+              <li>
+                <label for="fantasy">Fantasy</label>
+                <input
+                  type="checkbox"
+                  id="fantasy"
+                  name="fantasy"
+                  value="Fantasy" />
+              </li>
+              <li>
+                <label for="second-chance">Second Chnace</label>
+                <input
+                  type="checkbox"
+                  id="second-chance"
+                  name="second-chance"
+                  value="second-chance" />
+              </li>
+            </ul>
+          </div>
+          <div class="form-field">
+            <fieldset>
+              <legend>Will you re read it?</legend>
+              <ul>
+                <li>
+                  <input type="radio" name="re-read" id="yes" value="Yes" />
+                  <label for="re-read">Yes</label>
+                </li>
+                <li>
+                  <input type="radio" name="re-read" id="no" value="No" />
+                  <label for="re-read">No</label>
+                </li>
+                <li>
+                  <input type="radio" name="re-read" id="maybe" value="Maybe" />
+                  <label for="re-read">Maybe</label>
+                </li>
+              </ul>
+            </fieldset>
+          </div>
 
-        <div>
-          <label for="book-cover">Book cover</label>
-          <input type="file" name="book-cover" id="cover" />
-        </div>
+          <div class="form-field">
+            <label for="book-cover">Book cover</label>
+            <input type="file" name="book-cover" id="book-cover" />
+            <small></small>
+          </div>
 
-        <div>
-          <textarea name="review" id="review" cols="30" rows="10">
-What are your thoughts</textarea
-          >
-        </div>
-        <button type="submit" . id="submit">Log it</button>
-      </form>
+          <div class="form-field">
+            <textarea name="review" id="review" cols="30" rows="10">
+      What are your thoughts</textarea
+            >
+            <small></small>
+          </div>
+          <div class="form-field">
+            <input type="submit" value="submit" />
+            <small></small>
+          </div>
+        </form>
+      </div>
     </main>
     <footer></footer>
-    <script src="/"></script>
+    <script src="interact.js"></script>
   </body>
 </html>
