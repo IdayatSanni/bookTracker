@@ -59,6 +59,8 @@ body {
   margin-bottom: 5px;
   font-size: 14px;
   display: block;
+
+  transition: 0.2s all linear;
   width: 100%;
 }
 

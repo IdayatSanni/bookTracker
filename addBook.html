@@ -14,19 +14,19 @@
           <div class="form-field">
             <label for="title">Book title</label>
             <input type="text" name="title" id="title" />
-            <small></small>
+            <small class="display-notification"></small>
           </div>
 
           <div class="form-field">
             <label for="author">Book author</label>
             <input type="text" name="author" id="author" />
-            <small></small>
+            <small class="display-notification"></small>
           </div>
 
           <div class="form-field">
             <label for="date">Date</label>
             <input type="date" name="date" id="date" />
-            <small></small>
+            <small class="display-notification"></small>
           </div>
 
           <div class="form-field">
@@ -42,7 +42,7 @@
               id="rating"
               style="--val: 1"
               oninput="this.style='--val:'+this.value" />
-            <small></small>
+            <small class="display-notification"></small>
           </div>
 
           <div class="form-field">
@@ -53,7 +53,7 @@
                 <input
                   type="checkbox"
                   id="romance"
-                  name="romance"
+                  name="genre"
                   value="romance"
                   checked />
               </li>
@@ -62,7 +62,7 @@
                 <input
                   type="checkbox"
                   id="fantasy"
-                  name="fantasy"
+                  name="genre"
                   value="Fantasy" />
               </li>
               <li>
@@ -70,7 +70,7 @@
                 <input
                   type="checkbox"
                   id="second-chance"
-                  name="second-chance"
+                  name="genre"
                   value="second-chance" />
               </li>
             </ul>
@@ -80,7 +80,12 @@
               <legend>Will you re read it?</legend>
               <ul>
                 <li>
-                  <input type="radio" name="re-read" id="yes" value="Yes" />
+                  <input
+                    type="radio"
+                    name="re-read"
+                    id="yes"
+                    value="Yes"
+                    checked />
                   <label for="re-read">Yes</label>
                 </li>
                 <li>
@@ -98,18 +103,18 @@
           <div class="form-field">
             <label for="book-cover">Book cover</label>
             <input type="file" name="book-cover" id="book-cover" />
-            <small></small>
+            <small class="display-notification"></small>
           </div>
 
           <div class="form-field">
             <textarea name="review" id="review" cols="30" rows="10">
       What are your thoughts</textarea
             >
-            <small></small>
+            <small class="display-notification"></small>
           </div>
           <div class="form-field">
             <input type="submit" value="submit" />
-            <small></small>
+            <small class="display-notification"></small>
           </div>
         </form>
       </div>

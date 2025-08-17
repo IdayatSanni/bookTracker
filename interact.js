@@ -1,14 +1,8 @@
 window.addEventListener("DOMContentLoaded", () => {
   let form = document.getElementById("form");
 
-  let bookTitle = document.getElementById("title").value;
-
-  let bookAuthor = document.getElementById("author").value;
-  let date = document.getElementById("date").value;
-  let rating = document.getElementById("rating").value;
-  let review = document.getElementById("review").value;
-
   const isRequired = (value) => (value === "" ? false : true);
+
   const isBetween = (length, min, max) =>
     length < min || length > max ? false : true;
   const isEmailValid = (email) => {
@@ -24,9 +18,38 @@ window.addEventListener("DOMContentLoaded", () => {
     return re.test(password);
   };
 
+  // function errorNotifications(text) {
+  //   var displayValidationText = document.querySelector(".display-notification");
+  //   displayValidationText.classList.remove("success");
+  //   displayValidationText.classList.add("error");
+
+  //   displayValidationText.innerHTML = "You have to input a message";
+  // }
+
+  // function validateInput(text) {
+  //   if (!isRequired(text) && !isNotNull(text)) {
+  //   }
+  // }
+
   form.addEventListener("submit", (e) => {
     alert("clicked");
+    // bookGenre.forEach((element) => {
+    //   console.log(element.checked);
+    // });
+
     let bookTitle = document.getElementById("title").value;
+    let bookAuthor = document.getElementById("author").value;
+    let date = document.getElementById("date").value;
+    let rating = document.getElementById("rating").value;
+    let bookGenre = document.getElementsByName("genre");
+    let rereadSection = document.getElementsByName("re-read");
+
+    let review = document.getElementById("review").value;
+    console.log(bookAuthor);
+    console.log(date);
+    console.log(rating);
+    console.log(typeof bookGenre);
+    console.log(typeof rereadSection);
     console.log(bookTitle);
     e.preventDefault();
   });
