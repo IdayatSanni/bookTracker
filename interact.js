@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function errorMessage(input) {
     const inputFieldContainer = input.parentElement;
-
+    console.log(inputFieldContainer);
     inputFieldContainer.classList.remove("success");
     inputFieldContainer.classList.add("error");
     input.focus;
@@ -49,31 +49,52 @@ window.addEventListener("DOMContentLoaded", () => {
     const valid = true;
     const textInput = text.value;
     if (textInput === "" && textInput === null) {
-      successMessage(text);
+      errorMessage(text);
       return valid;
     } else {
-      errorMessage(text);
+      successMessage(text);
+      console.log("yo");
     }
   }
 
-  // function validateInput(text) {
-  //   if (!isRequired(text) && !isNotNull(text)) {
-  //   }
-  // }
+  function validateGenre(genre) {
+    let valid = false;
+    let values = [];
+    let displayMessageBtm = document.querySelector(
+      ".display-notification-checkbox"
+    );
+
+    genre.forEach((element) => {
+      if (element.checked) {
+        valid = true;
+        console.log(element.value);
+        values.push(element.value);
+      }
+    });
+
+    if (valid) {
+      displayMessageBtm.innerHTML = "Success";
+      alert("hello");
+    } else {
+      displayMessageBtm.innerHTML = "Please choose one option";
+    }
+
+    return { valid, values }; // optional
+  }
 
   form.addEventListener("submit", (e) => {
     let bookTitle = document.getElementById("title");
     const validateBook = validateTextInput(bookTitle);
+
     let bookAuthor = document.getElementById("author");
-
     const validateAuthor = validateTextInput(bookAuthor);
-    let date = document.getElementById("date");
 
+    let date = document.getElementById("date");
     const validateDate = validateTextInput(date);
     let rating = document.getElementById("rating");
     const validateRating = validateTextInput(rating);
     let bookGenre = document.getElementsByName("genre");
-
+    const validatingGenre = validateGenre(bookGenre);
     let rereadSection = document.getElementsByName("re-read");
 
     let review = document.getElementById("review");
@@ -83,6 +104,7 @@ window.addEventListener("DOMContentLoaded", () => {
       validateBook &&
       validateAuthor &&
       validateDate &&
+      validatingGenre &&
       validateRating &&
       validateReview;
 
