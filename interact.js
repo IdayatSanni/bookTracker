@@ -1,7 +1,9 @@
 window.addEventListener("DOMContentLoaded", () => {
   let form = document.getElementById("form");
 
-  const isRequired = (value) => (value === "" ? false : true);
+  const isInputValid = (value) => (value === "" ? false : true);
+  const isBetween = (length, min, max) =>
+    length < min || length > max ? false : true;
 
   const isEmailValid = (email) => {
     const re =
@@ -44,17 +46,17 @@ window.addEventListener("DOMContentLoaded", () => {
     errorField.textContent = "";
   }
 
-  function validateTextInput(text) {
-    console.log(text);
-    const valid = true;
+  function validateTextInputs(text) {
+    const valid = false;
     const textInput = text.value;
-    if (textInput === "" && textInput === null) {
+    if (!isInputValid(textInput)) {
       errorMessage(text);
-      return valid;
+      valid = true;
     } else {
       successMessage(text);
       console.log("yo");
     }
+    return { valid };
   }
 
   function validateGenre(genre) {
@@ -79,7 +81,7 @@ window.addEventListener("DOMContentLoaded", () => {
       displayMessageBtm.innerHTML = "Please choose one option";
     }
 
-    return { valid, values }; // optional
+    return valid; // optional
   }
 
   form.addEventListener("submit", (e) => {
@@ -107,6 +109,11 @@ window.addEventListener("DOMContentLoaded", () => {
       validatingGenre &&
       validateRating &&
       validateReview;
+
+    // if the form values all meet validation now we want to navigate to the next page with the form values
+    if (isFormValid) {
+      displayFormData();
+    }
 
     e.preventDefault();
   });
