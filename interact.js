@@ -18,16 +18,17 @@ window.addEventListener("DOMContentLoaded", () => {
     return re.test(password);
   };
 
+  // create reusable erro message
   function errorMessage(input) {
     const inputFieldContainer = input.parentElement;
-    console.log(inputFieldContainer);
+
     inputFieldContainer.classList.remove("success");
     inputFieldContainer.classList.add("error");
     input.focus;
     const errorField = inputFieldContainer.querySelector(
       ".display-notification"
     );
-    console.log(errorField);
+
     const convertTouppercase = input.name;
     let name = convertTouppercase.toUpperCase();
     errorField.textContent = `The ${name} Cannot be blank`;
@@ -42,19 +43,18 @@ window.addEventListener("DOMContentLoaded", () => {
     const errorField = inputFieldContainer.querySelector(
       ".display-notification"
     );
-    console.log(errorField);
     errorField.textContent = "";
   }
 
   function validateTextInputs(text) {
-    const valid = false;
+    let valid = false;
     const textInput = text.value;
-    if (!isInputValid(textInput)) {
-      errorMessage(text);
+    if (isInputValid(textInput)) {
+      successMessage(text);
+
       valid = true;
     } else {
-      successMessage(text);
-      console.log("yo");
+      errorMessage(text);
     }
     return { valid };
   }
@@ -75,45 +75,69 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     if (valid) {
-      displayMessageBtm.innerHTML = "Success";
-      alert("hello");
+      displayMessageBtm.innerHTML = "Good to go";
     } else {
-      displayMessageBtm.innerHTML = "Please choose one option";
+      displayMessageBtm.innerHTML = "Please choose an option";
     }
 
-    return valid; // optional
+    return valid;
+  }
+
+  function validateReread(option) {
+    let valid = false;
+    let values = [];
+    let displayMessageBtm = document.querySelector(
+      ".display-notification-read"
+    );
+
+    option.forEach((element) => {
+      if (element.checked) {
+        valid = true;
+        console.log(element.value);
+        values.push(element.value);
+      }
+    });
+
+    if (valid) {
+      displayMessageBtm.innerHTML = "Good to go";
+    } else {
+      displayMessageBtm.innerHTML = "Please choose an option";
+    }
+
+    return valid;
   }
 
   form.addEventListener("submit", (e) => {
     let bookTitle = document.getElementById("title");
-    const validateBook = validateTextInput(bookTitle);
+    const validateBook = validateTextInputs(bookTitle);
 
     let bookAuthor = document.getElementById("author");
-    const validateAuthor = validateTextInput(bookAuthor);
+    const validateAuthor = validateTextInputs(bookAuthor);
 
     let date = document.getElementById("date");
-    const validateDate = validateTextInput(date);
+    const validateDate = validateTextInputs(date);
     let rating = document.getElementById("rating");
-    const validateRating = validateTextInput(rating);
+    const validateRating = validateTextInputs(rating);
     let bookGenre = document.getElementsByName("genre");
     const validatingGenre = validateGenre(bookGenre);
-    let rereadSection = document.getElementsByName("re-read");
-
+    let rereadSection = document.querySelectorAll('input[type="radio"]');
+    const validatingReread = validateReread(rereadSection);
     let review = document.getElementById("review");
-    const validateReview = validateTextInput(review);
+    const validateReview = validateTextInputs(review);
 
     const isFormValid =
       validateBook &&
       validateAuthor &&
       validateDate &&
       validatingGenre &&
+      validatingReread &&
       validateRating &&
       validateReview;
 
     // if the form values all meet validation now we want to navigate to the next page with the form values
-    if (isFormValid) {
-      displayFormData();
-    }
+    // if (isFormValid) {
+    //   displayFormData();
+    // }
 
     e.preventDefault();
   });
